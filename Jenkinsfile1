@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout git') {
             steps {
-              git 'https://github.com/praveensirvi1212/insurance-project.git'
+              git 'https://github.com/shubhamkamandar/insurance-project.git'
             }
         }
         
@@ -20,9 +20,9 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'password', usernameVariable: 'username')]) {
                     
-                    sh 'docker build -t praveensirvi/insure-me:v3 .'
+                    sh 'docker build -t shubham3669/insure-me:v3 .'
                     sh "docker login -u ${username} -p ${password} "
-                    sh 'docker push praveensirvi/insure-me:v3'
+                    sh 'docker push shubham3669/insure-me:v3'
                     
                     
                 }
